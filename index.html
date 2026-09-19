@@ -14,6 +14,7 @@
     })();
   </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <style>
     :root {
       --theme-color: #2f80ed;
@@ -228,6 +229,21 @@
       }
     };
 
+    window.$docsify.plugins = (window.$docsify.plugins || []).concat(function (hook) {
+      function renderMath() {
+        var el = document.querySelector('.markdown-section');
+        if (!el || !window.renderMathInElement) return;
+        window.renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+      hook.doneEach(renderMath);
+    });
+
     (function () {
       var button = document.getElementById('darklight-toggle');
       var media = window.matchMedia('(prefers-color-scheme: dark)');
@@ -281,9 +297,9 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@3"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/countable@3/dist/countable.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-count@1/dist/countable.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-ruby.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

@@ -18,6 +18,7 @@ https://pta-program.github.io/pta_basic_level_article_by_ruby/
 - 题号和关键词搜索；
 - 上一题 / 下一题导航；
 - Ruby 代码复制、图片缩放与 Mermaid 流程图渲染；
+- 题面中的 `$...$` 公式由 KaTeX 渲染；
 - 页面右下角亮色 / 暗黑模式切换，并记住用户选择。
 
 首次启用时，请在 GitHub 打开 `Settings` → `Pages`，将 `Build and deployment` 的 `Source` 设为 `GitHub Actions`，然后推送到 `main` 或 `master` 分支，或手动运行 `Deploy Docsify to GitHub Pages` 工作流。
